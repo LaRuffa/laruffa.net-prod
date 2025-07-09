@@ -43,16 +43,11 @@ url = "https://github.com/memzi513"
 target = "_blank"
 aria = "GitHub Profile"
 
-[[params.social]]
-key = 1
-name = "twitter"
-url = "https://www.example.com"
-aria = "Twitter Profile"
 
 [[params.social]]
 key = 2
 name = "linkedin"
-url = "https://www.example.com"
+url = "https://www.linkedin.com/in/michael-laruffa-90aaa8330/"
 aria = "LinkedIn Profile"
 
 [[params.social]]
