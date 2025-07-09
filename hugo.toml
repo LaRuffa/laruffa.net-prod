@@ -1,7 +1,9 @@
 baseURL = 'https://laruffa.net/'
 languageCode = 'en-us'
 theme = "hugo-theme-nightfall"
-
+[module]
+[[module.imports]]
+  path = 'github.com/LordMathis/hugo-theme-nightfall'
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
