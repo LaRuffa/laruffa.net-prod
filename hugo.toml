@@ -25,6 +25,11 @@ theme = "hugo-theme-nightfall"
     weight = 2
     url = "resume"
 
+      [[menu.header]]
+    name = "projects"
+    weight = 2
+    url = "projects"
+
 [params]
 user = "hello"
 hostname = "laruffa.net"
