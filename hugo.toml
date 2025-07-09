@@ -20,6 +20,10 @@ theme = "hugo-theme-nightfall"
     name = "about"
     weight = 1
     url = "about"
+  [[menu.header]]
+    name = "resume"
+    weight = 2
+    url = "resume"
 
 [params]
 user = "hello"
