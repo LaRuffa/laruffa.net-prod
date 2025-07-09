@@ -9,7 +9,6 @@ hostname = "gohugo.io"
 
   [params.author]
     name = "Mike LaRuffa"
-    avatar = "/avatar.png"
     avatarSize = "size-m"
     email = "mike@laruffa.net"
     avatarFirst = false
