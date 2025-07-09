@@ -7,11 +7,9 @@ menu:
     weight: 1
 ---
 
-Hi! I'm Mike. Welcome to my site.
-
 <h2>A little about me</h2>
-<ul>
-<li>Aspiring cloud engineer.</li>
-<li>5 years experience in Information Technology</li>
-<li>3 years experience in on-prem infrastructure maintenance and administration</li>
-</ul>
+Hi! I'm Mike. Welcome to my site.
+<h3>Origins</h3>
+<p>Like many involved in tech, my interest in the field began at a young age. My earliest "lightbulb moment" came by the age of 10, where I learned about VPNs and how I could use them to bypass a time-based internet restriction put in place by my parents as a curfew. Nothing is worse than being in the middle of a good game, and having your internet go out right when you're making a comeback. From there, a virtual arms race took place where more restrictions would be put in place, and I started learning about MAC and IP addresses. While there may have been a mutual frustration between me and my parents at the time, I cannot thank them enough for giving me the motivation to dig deeper.</p>
+<h3>Teenage Years</h3>
+<p>While many teens venture off doing mischievous activities, I instead spent my summers indoors in the comfort of my room. Not particularly exciting, and perhaps I now have some regrets with my choices, but I cannot deny that the research and projects I did at the time gave me the ability to think about things logically. By 13 I had created websites, several minecraft client modiciations, edited gaming montages, and even worked with a few friends to create online tools for profit. None of these really brought any sort of prosperity, but getting in the habit of planning and executing a project felt second nature to me by the time I finished middle school.</p>
