@@ -8,8 +8,8 @@ user = "hello"
 hostname = "gohugo.io"
 
   [params.author]
-    name = "Mr Hugo"
+    name = "Mike LaRuffa"
     avatar = "/avatar.png"
     avatarSize = "size-m"
-    email = "hugo@example.com"
+    email = "mike@laruffa.net"
     avatarFirst = false
