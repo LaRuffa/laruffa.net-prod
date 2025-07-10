@@ -27,7 +27,7 @@ theme = "hugo-theme-nightfall"
     url = "projects"
 
 [params]
-user = "hello"
+user = "mike"
 hostname = "laruffa.net"
   [params.author]
     name = "Mike La Ruffa"  # Website and RSS feed author
