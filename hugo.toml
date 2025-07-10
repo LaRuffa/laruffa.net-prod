@@ -17,10 +17,6 @@ theme = "hugo-theme-nightfall"
     weight = 0
     url = "blog"
   [[menu.header]]
-    name = "about"
-    weight = 1
-    url = "about"
-  [[menu.header]]
     name = "resume"
     weight = 2
     url = "resume"
