@@ -17,3 +17,12 @@ menu:
 <li>Participated in weekly operations meetings discussing profits, budgets, and future expansion plans.</li>
   
 </ul>
+
+<h2>Wurtsboro Diner & Cafe</h2>
+<h3><b>Date: </b>7/2025</h3>
+<ul>
+<li>Upgraded internal network, converting client from outdated Arris hardware to a modern Ubiquiti mesh system.</li>
+<li>Upgraded clients PCs, and cabling to allow for higher, consistent performance.</li>
+<li>Worked as primary consultant for future upgrades.</li>
+  
+</ul>
