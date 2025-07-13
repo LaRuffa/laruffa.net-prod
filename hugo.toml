@@ -40,7 +40,7 @@ published = true  # Show published data on post page
 [[params.social]]
 key = 0
 name = "github"
-url = "https://github.com/memzi513"
+url = "https://github.com/laruffa"
 target = "_blank"
 aria = "GitHub Profile"
 
