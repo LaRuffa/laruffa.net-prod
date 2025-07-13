@@ -44,6 +44,12 @@ url = "https://github.com/laruffa"
 target = "_blank"
 aria = "GitHub Profile"
 
+[[params.social]]
+key = 1
+name = "ms-learn"
+url = "https://learn.microsoft.com/en-us/users/laruffa/"
+target = "_blank"
+aria = "GitHub Profile"
 
 [[params.social]]
 key = 2
