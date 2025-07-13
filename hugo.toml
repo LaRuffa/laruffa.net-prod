@@ -48,7 +48,7 @@ aria = "GitHub Profile"
 [[params.social]]
 key = 2
 name = "linkedin"
-url = "https://www.linkedin.com/in/michaellaruffa/"
+url = "https://www.linkedin.com/in/laruffa/"
 aria = "LinkedIn Profile"
 
 [[params.social]]
