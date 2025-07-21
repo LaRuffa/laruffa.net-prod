@@ -30,7 +30,7 @@ theme = "hugo-theme-nightfall"
 user = "mike"
 hostname = "laruffa.net"
   [params.author]
-    name = "Mike La Ruffa"  # Website and RSS feed author
+    name = "Michael La Ruffa"  # Website and RSS feed author
     email = "mike@laruffa.net"  # RSS feed email address
 
 
