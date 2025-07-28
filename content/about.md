@@ -18,6 +18,7 @@ I'm a tech-geek that loves to learn and evolve. Currently I am employed as an on
 <li>Wireguard - for reverse proxy via a VPS</li>
 <li>Racknerd VPS - for site/game hosting, reverse proxy, and miscellaneous projects</li>
 <li>Ubiquiti Flex 16 port - Got this before I was trained on Cisco products, but don't regret. Looks nice and easy to configure via GUI</li>
+<li>Raspberry Pi</li>
 </ul>
 
 As many techies do, I have ventured down the Linux route before. I still use it from time to time, but moreso for curiousity than anything else. I can proudly say I prefer Windows as my daily driver, but have had intermediate experience in the following distributions:
@@ -27,6 +28,7 @@ As many techies do, I have ventured down the Linux route before. I still use it 
   <li>Ubuntu - My favorite. Stable, and works out of the box for what I use it for.</li>
   <li>Kali - We've all had that "hacker phase" before. I like the OS, but at this point I'd rather just use Arch or Ubuntu and install the tools I need. Too much bloat in my opinion.</li>
   <li>Mint - Sweet mint.</li>
+    <li>Pi OS - probably my least favorite distrobution of all time to be honest.</li>
   </ul>
   <li>RHEL - Have used both professionally and personally, no major complaints.</li>
 </ul>
