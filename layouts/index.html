@@ -3,7 +3,7 @@
 {{ $p := site.Data.profile }}
 <section class="hero container">
     <div class="hero-copy">
-        <p class="status-pill mono"><span class="dot"></span>{{ $p.availability }}</p>
+        <p class="status-pill mono">{{ $p.availability }}</p>
         <h1 class="hero-title">{{ .Site.Params.author.name }}</h1>
         <p class="hero-sub mono"><span class="accent">&gt;</span> <span class="typed" data-words="Systems Administrator|Data & Reporting Analyst|SQL · PowerShell · Azure|Homelab Builder">{{ $p.headline }}</span></p>
         <p class="hero-summary">{{ $p.summary }}</p>
@@ -64,8 +64,8 @@
 
 <section class="container section">
     <div class="cta-band">
-    <h2>Hiring for IT, systems or data?</h2>
-    <p>I'm looking for my next role and would love to talk.</p>
+    <h2>Have a project in mind?</h2>
+    <p>I take on the occasional freelance job: small-business networks, Wi-Fi, PC upgrades and cabling.</p>
     <div class="hero-cta">
         <a class="btn" href="mailto:{{ .Site.Params.author.email }}">{{ .Site.Params.author.email }}</a>
         <a class="btn btn-ghost" href="{{ "projects/" | relURL }}">See projects</a>
