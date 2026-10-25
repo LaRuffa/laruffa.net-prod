@@ -26,15 +26,9 @@ I've earned my **AZ-900** and I'm working toward **AZ-104** (Azure Administrator
 
 ## The homelab
 
-Most of what I learn starts at home. My current lab:
+Most of what I learn starts at home. Everything runs behind a **pfSense** firewall (easy to use, secure, and I love it). A **WireGuard** tunnel to a RackNerd VPS publishes services without opening ports at home. Game servers run under **CubeCoders AMP** (the Application Management Panel, not Cisco's endpoint product). I bought the Ubiquiti switch before I trained on Cisco and don't regret it.
 
-- **pfSense**: firewall, router and VPN. Easy to use and secure. I love this software.
-- **VMware vCenter 7**: persistent virtualization.
-- **CubeCoders AMP** (the Application Management Panel, not Cisco's endpoint product): Docker-based game server deployments.
-- **WireGuard**: a reverse proxy back to a VPS.
-- **RackNerd VPS**: site and game hosting, reverse proxy and other projects.
-- **Ubiquiti Flex 16-port switch**: I bought it before I trained on Cisco and don't regret it. It looks nice and the GUI is easy to configure.
-- **Raspberry Pi**: small always-on services.
+{{< homelab >}}
 
 ## Linux
 

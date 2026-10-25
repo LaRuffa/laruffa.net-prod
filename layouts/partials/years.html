@@ -1,0 +1,5 @@
+{{- /* Whole years since profile.career_start, as "N+", wrapped so site.js can keep it current. */ -}}
+{{- $start := time.AsTime site.Data.profile.career_start -}}
+{{- $years := int (math.Floor (div (now.Sub $start).Hours 8766)) -}}
+{{- $html := printf `<span data-years-since="%s">%d+</span>` site.Data.profile.career_start $years -}}
+{{- return (replace . "{years}" $html | safeHTML) -}}

@@ -6,14 +6,14 @@
         <p class="status-pill mono">{{ $p.availability }}</p>
         <h1 class="hero-title">{{ .Site.Params.author.name }}</h1>
         <p class="hero-sub mono"><span class="accent">&gt;</span> <span class="typed" data-words="Systems Administrator|Data & Reporting Analyst|SQL · PowerShell · Azure|Homelab Builder">{{ $p.headline }}</span></p>
-        <p class="hero-summary">{{ $p.summary }}</p>
+        <p class="hero-summary">{{ partial "years.html" $p.summary }}</p>
         <div class="hero-cta">
             <a class="btn" href="{{ "resume/" | relURL }}">View résumé</a>
             <a class="btn btn-ghost" href="mailto:{{ .Site.Params.author.email }}">Get in touch</a>
             <a class="btn btn-ghost" href="https://www.linkedin.com/in/laruffa/" target="_blank" rel="noopener">LinkedIn ↗</a>
         </div>
     </div>
-    <div class="terminal" aria-label="Terminal summary">
+    <div class="terminal" data-shell title="Click and type">
         <div class="terminal-bar"><span></span><span></span><span></span><em class="mono">~/whoami.sh</em></div>
         <pre class="terminal-body mono"><span class="accent">$</span> whoami
 {{ .Site.Params.author.name }}
@@ -22,17 +22,18 @@
 <span class="accent">$</span> ls ~/certs
 <span class="ok">AZ-900 ✓</span>  <span class="warn">AZ-104 …</span>
 <span class="accent">$</span> uptime --in-it
-{{ (index $p.stats 0).value }} years in enterprise IT &amp; data
+{{ partial "years.html" "{years}" }} years in enterprise IT &amp; data
 <span class="accent">$</span> echo $LOCATION
 {{ $p.location }}
 <span class="accent">$</span> <span class="cursor"></span></pre>
+        <input class="term-input" type="text" aria-label="Terminal: type a command" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" maxlength="60">
     </div>
 </section>
 
 <section class="container stats">
     {{ range $p.stats }}
     <div class="stat">
-        <span class="stat-value">{{ .value }}</span>
+        <span class="stat-value">{{ partial "years.html" .value }}</span>
         <span class="stat-label">{{ .label }}</span>
     </div>
     {{ end }}
@@ -48,18 +49,16 @@
     {{ partial "skills.html" . }}
 </section>
 
-<section class="container section split" id="certs">
-    <div>
-        <h2 class="section-title"><span class="accent">03.</span> certifications</h2>
-        {{ partial "certs.html" . }}
-    </div>
-    <div>
-        <h2 class="section-title"><span class="accent">04.</span> homelab</h2>
-        <ul class="lab">
-            {{ range $p.homelab }}<li><span class="mono accent">{{ .name }}</span> <span class="dim">· {{ .desc }}</span></li>{{ end }}
-        </ul>
-        <p><a class="link" href="{{ "about/" | relURL }}">More about me →</a></p>
-    </div>
+<section class="container section" id="certs">
+    <h2 class="section-title"><span class="accent">03.</span> certifications</h2>
+    {{ partial "certs.html" . }}
+</section>
+
+<section class="container section" id="homelab">
+    <h2 class="section-title"><span class="accent">04.</span> homelab</h2>
+    <p class="section-lead">The always-on side of things: where I break things at home before I fix them at work.</p>
+    {{ partial "homelab.html" . }}
+    <p><a class="link" href="{{ "about/" | relURL }}">More about me →</a></p>
 </section>
 
 <section class="container section">
