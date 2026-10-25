@@ -34,14 +34,41 @@
     var CURSOR = '<span class="cursor"></span>';
     var original = body.innerHTML;
     var base = original.slice(0, original.lastIndexOf(PROMPT));
-    var hist = base, locked = false;
+    var locked = false, histEl, lineEl;
     var esc = function (t) {
       return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     };
-    var render = function () {
-      body.innerHTML = hist + (locked ? "" : PROMPT + esc(input.value) + CURSOR);
+    // History is append-only so only new output animates; the prompt line redraws on each key.
+    var setup = function () {
+      body.innerHTML = '<span class="term-hist">' + base + '</span><span class="term-line"></span>';
+      histEl = body.firstChild;
+      lineEl = body.lastChild;
+      drawLine();
+    };
+    var drawLine = function () {
+      lineEl.innerHTML = locked ? "" : PROMPT + esc(input.value) + CURSOR;
       body.scrollTop = body.scrollHeight;
     };
+    var print = function (html, animate) {
+      histEl.insertAdjacentHTML("beforeend", animate ? '<span class="term-out">' + html + "</span>" : html);
+    };
+    var reset = function () {
+      body.classList.add("fading");
+      setTimeout(function () { locked = false; setup(); body.classList.remove("fading"); }, reduce ? 0 : 350);
+    };
+    var typeOut = function (text, done) {
+      var span = document.createElement("span");
+      span.className = "ok";
+      histEl.appendChild(span);
+      if (reduce) { span.textContent = text; return done(); }
+      var n = 0;
+      (function step() {
+        span.textContent = text.slice(0, ++n);
+        body.scrollTop = body.scrollHeight;
+        if (n < text.length) setTimeout(step, 32); else done();
+      })();
+    };
+    setup();
     var FILE = "easter-egg.sh";
     // Treat Windows-style ".\" like "./", drop quotes, collapse spaces.
     var norm = function (t) {
@@ -49,22 +76,22 @@
     };
     var run = function (cmd) {
       var t = norm(cmd), word = t.split(" ")[0], arg = t.split(" ")[1];
-      hist += PROMPT + esc(cmd) + "\n";
-      if (!t) return render();
+      print(PROMPT + esc(cmd) + "\n");
+      if (!t) return drawLine();
       if (/^ls( -[a-zA-Z]+| \.\/?| ~\/?)*$/.test(t)) {
-        hist += '<span class="egg-file">' + FILE + "</span>\n";
+        print('<span class="egg-file">' + FILE + "</span>\n", true);
       } else if (t === "./" + FILE || /^(ba)?sh (\.\/)?easter-egg\.sh$/.test(t)) {
-        hist += '<span class="ok">You found me! Did I do this right?</span>\n';
         locked = true;
-        setTimeout(function () { hist = base; locked = false; render(); }, 4000);
+        drawLine();
+        return typeOut("You found me! Did I do this right?", function () { setTimeout(reset, 2800); });
       } else if (/^(ba)?sh$/.test(word) && arg) {
-        hist += word + ": " + esc(arg) + ": No such file or directory\n";
+        print(word + ": " + esc(arg) + ": No such file or directory\n", true);
       } else if (/[\/\\]/.test(word)) {
-        hist += "bash: " + esc(word) + ": No such file or directory\n";
+        print("bash: " + esc(word) + ": No such file or directory\n", true);
       } else {
-        hist += "bash: " + esc(word) + ": command not found\n";
+        print("bash: " + esc(word) + ": command not found\n", true);
       }
-      render();
+      drawLine();
     };
     // Tab-complete the file name in the last word, like bash.
     var complete = function (value) {
@@ -78,7 +105,7 @@
     });
     input.addEventListener("focus", function () { shell.classList.add("focused"); });
     input.addEventListener("blur", function () { shell.classList.remove("focused"); });
-    input.addEventListener("input", function () { if (!locked) render(); });
+    input.addEventListener("input", function () { if (!locked) drawLine(); });
     input.addEventListener("keydown", function (e) {
       if (locked) { e.preventDefault(); return; }
       if (e.key === "Enter") {
@@ -90,7 +117,7 @@
         // Keep Tab in the terminal like a real shell (Esc leaves). Complete the file name.
         e.preventDefault();
         input.value = complete(input.value);
-        render();
+        drawLine();
       } else if (e.key === "Escape") {
         input.blur();
       }
@@ -106,16 +133,38 @@
     if (!a.title) a.title = "Opens your email app";
   });
 
-  // Fade home-page sections in as they scroll into view. Only top-level sections, never the
-  // résumé, so content can't get stuck hidden (or print blank).
+  // Count a stat up from zero, keeping its suffix ("+") and thousands separators.
+  var countUp = function (el) {
+    var m = el.textContent.trim().match(/^([\d,]+)(.*)$/);
+    if (!m) return;
+    var target = parseInt(m[1].replace(/,/g, ""), 10), comma = m[1].indexOf(",") > -1, t0 = null;
+    var fmt = function (v) { return (comma ? v.toLocaleString("en-US") : String(v)) + m[2]; };
+    el.textContent = fmt(0);
+    requestAnimationFrame(function tick(ts) {
+      if (t0 === null) t0 = ts;
+      var p = Math.min((ts - t0) / 1400, 1), eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(Math.round(target * eased));
+      if (p < 1) requestAnimationFrame(tick);
+    });
+  };
+
+  // Ease home-page sections in as they scroll into view, their cards and rows one after another.
+  // Only top-level sections, never the résumé, so content can't get stuck hidden (or print blank).
   if ("IntersectionObserver" in window && !reduce) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+        if (!e.isIntersecting) return;
+        e.target.classList.add("in");
+        e.target.querySelectorAll(".stat-value").forEach(countUp);
+        io.unobserve(e.target);
       });
     }, { threshold: 0, rootMargin: "0px 0px -8% 0px" });
     document.querySelectorAll(".main > section.section, .main > .stats").forEach(function (n) {
       n.classList.add("reveal");
+      n.querySelectorAll(".stat, .timeline-item, .skill-grid > .card, .lab-grid > .card, .cert").forEach(function (c, i) {
+        c.classList.add("rv-child");
+        c.style.setProperty("--i", Math.min(i, 8));
+      });
       io.observe(n);
     });
   }
