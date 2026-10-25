@@ -5,7 +5,7 @@
     <div class="hero-copy">
         <p class="status-pill mono"><span class="dot"></span>{{ $p.availability }}</p>
         <h1 class="hero-title">{{ .Site.Params.author.name }}</h1>
-        <p class="hero-sub mono"><span class="accent">&gt;</span> <span class="typed" data-words="Systems Administrator|Aspiring Cloud Engineer|Azure · VMware · Cisco|Homelab Builder">{{ $p.headline }}</span></p>
+        <p class="hero-sub mono"><span class="accent">&gt;</span> <span class="typed" data-words="Systems Administrator|Data & Reporting Analyst|SQL · PowerShell · Azure|Homelab Builder">{{ $p.headline }}</span></p>
         <p class="hero-summary">{{ $p.summary }}</p>
         <div class="hero-cta">
             <a class="btn" href="{{ "resume/" | relURL }}">View résumé</a>
@@ -20,9 +20,9 @@
 <span class="accent">$</span> cat role.txt
 {{ $p.headline }}
 <span class="accent">$</span> ls ~/certs
-<span class="ok">AZ-900 ✓</span>  <span class="warn">AZ-104 …</span>  <span class="warn">AZ-500 …</span>
+<span class="ok">AZ-900 ✓</span>  <span class="warn">AZ-104 …</span>
 <span class="accent">$</span> uptime --in-it
-{{ (index $p.stats 0).value }} years in enterprise IT
+{{ (index $p.stats 0).value }} years in enterprise IT &amp; data
 <span class="accent">$</span> echo $LOCATION
 {{ $p.location }}
 <span class="accent">$</span> <span class="cursor"></span></pre>
@@ -64,7 +64,7 @@
 
 <section class="container section">
     <div class="cta-band">
-    <h2>Hiring for cloud, infrastructure or sysadmin?</h2>
+    <h2>Hiring for IT, systems or data?</h2>
     <p>I'm looking for my next role and would love to talk.</p>
     <div class="hero-cta">
         <a class="btn" href="mailto:{{ .Site.Params.author.email }}">{{ .Site.Params.author.email }}</a>

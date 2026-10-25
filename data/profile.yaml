@@ -1,74 +1,86 @@
 # Everything recruiters see on the home page and /resume comes from this file.
-headline: "Systems Administrator → Cloud Engineer"
+headline: "Systems Administrator · Data & Reporting"
 location: "Hudson Valley, NY"
-availability: "Open to Cloud, Systems & Infrastructure roles"
+availability: "Open to IT, Systems & Data roles"
 summary: >-
-  Systems administrator with 5+ years in enterprise IT. I was the sole sysadmin
-  who stood up the full IT stack for a brand-new casino resort: 60+ VMs,
-  networking, security and access for ~200 users. Now taking that on-prem
-  experience to Azure.
+  5+ years keeping business-critical systems running in a highly regulated
+  casino environment. I stood up the full IT stack for a brand-new resort
+  (60+ VMs, networking, hybrid identity, backups), and now I turn data into
+  answers with SQL, Excel and Power Query as a marketing analyst. I bring
+  infrastructure and data work together, with Azure next.
 
 stats:
   - value: "5+"
-    label: "years in enterprise IT"
+    label: "years in enterprise IT & data"
   - value: "60+"
-    label: "VMs deployed at a greenfield property"
-  - value: "~200"
-    label: "users supported end to end"
+    label: "VMs deployed at a greenfield resort"
+  - value: "1,000+"
+    label: "endpoints supported"
   - value: "1"
-    label: "sysadmin at opening day: me"
+    label: "sole sysadmin at opening day: me"
 
 skills:
+  - group: "Data & Reporting"
+    items: ["SQL (T-SQL)", "SQL Server", "Excel", "Power Query", "Data validation & reconciliation", "Backup & restore testing"]
   - group: "Infrastructure & Virtualization"
-    items: ["VMware vSphere / vCenter", "Proxmox", "Windows Server", "Veeam Backup", "SQL backup & restore", "RHEL / Ubuntu"]
+    items: ["VMware vSphere / vCenter", "Windows Server", "Veeam Backup & Replication", "WSUS", "Proxmox", "RHEL / Ubuntu"]
+  - group: "Identity & Security"
+    items: ["Active Directory", "Entra ID (hybrid identity)", "Okta", "Duo", "CrowdStrike", "Cisco AMP", "Incident response"]
   - group: "Networking"
     items: ["Cisco switching & routing (CLI)", "Meraki", "pfSense", "WireGuard", "DNS / DHCP", "ISP failover testing", "Ubiquiti"]
-  - group: "Security & Identity"
-    items: ["Active Directory", "MFA: Okta, Duo, MS Authenticator", "CrowdStrike", "Cisco AMP", "Incident response", "SecureLink vendor access"]
-  - group: "Cloud & Automation"
-    items: ["Microsoft Azure", "Microsoft 365", "PowerShell", "Robocopy", "CrushFTP", "CodeTwo"]
+  - group: "Automation & Cloud"
+    items: ["PowerShell", "Task Scheduler", "Microsoft Azure", "Microsoft 365"]
+  - group: "Service Management"
+    items: ["Zendesk", "KACE", "ServiceDesk Plus", "Runbooks & documentation", "Vendor management"]
 
 certifications:
   - name: "Microsoft Certified: Azure Fundamentals (AZ-900)"
     status: "earned"
-  - name: "Azure Administrator Associate (AZ-104)"
-    status: "in progress"
-  - name: "Azure Security Engineer Associate (AZ-500)"
+  - name: "Microsoft Certified: Azure Administrator Associate (AZ-104)"
     status: "in progress"
 
 experience:
-  - role: "IT Consultant"
-    company: "Independent / Wurtsboro Diner & Cafe"
-    location: "Wurtsboro, NY"
-    dates: "Jul 2025"
+  - role: "Marketing Analyst I"
+    company: "Resorts World Catskills (Genting Americas)"
+    location: "Monticello, NY"
+    dates: "May 2026 – Present"
     bullets:
-      - "Replaced outdated Arris hardware with a modern Ubiquiti mesh network."
-      - "Upgraded client PCs and cabling for faster, more consistent performance."
-      - "Kept on as the main consultant for future upgrades."
+      - "Run recurring SQL, Excel and Power Query reporting that produces monthly promotional statistics and tracking summaries."
+      - "Validate multi-property promotional datasets against backend database logs for financial accuracy."
+      - "Rebuilt the manual prize redemption process to pull data directly from the database instead of scraping the application interface."
+      - "Primary technical contact for corporate vendors (DataSpade, Everi): traced network and latency problems to oversized campaign files and coordinated file delivery."
   - role: "Systems Administrator"
-    company: "Resorts World Hudson Valley"
-    location: "Newburgh, NY"
-    dates: "Sep 2022 – Feb 2025"
+    company: "Resorts World Hudson Valley / Resorts World Catskills"
+    location: "Newburgh / Monticello, NY"
+    dates: "Sep 2022 – May 2026"
     bullets:
-      - "Sole systems administrator and only salaried IT staff at the property's opening. Built the entire IT infrastructure: 60+ VMs, server configuration, software and user access."
-      - "Led critical upgrades to the gaming system, firewall and switch firmware, and took part in ISP failover testing."
-      - "Rolled out MFA (Okta, Duo) and coordinated fast response to security incidents, including isolating a ransomware attack."
+      - "Sole systems administrator at Hudson Valley's opening. Built the entire IT infrastructure: 60+ VMs, server configuration, software and user access."
+      - "Deployed hybrid identity from scratch, moving on-prem Active Directory into Entra ID with Okta and Duo MFA."
       - "Restored servers and front-line PCs within hours of the global CrowdStrike blue-screen outage, avoiding business downtime."
-      - "Built a SQL data warehouse for backup and restore testing, with daily restores of system and user databases."
-      - "Ran the department and sat in weekly operations meetings on profit, budget and expansion planning."
-      - "Managed vendor and MSP relationships, including remote vendor access through SecureLink."
+      - "Maintained an isolated SQL Server data warehouse for business continuity, with daily restore checks of system and user databases."
+      - "Directed two IT technicians through hardware lifecycle projects, firmware rollouts and network switch staging for the Hudson Valley launch."
+      - "Led gaming system, firewall and switch firmware upgrades and ISP failover testing; contained a ransomware incident."
+      - "Wrote runbooks and hardware lifecycle guides that standardized deployments and sped up onboarding."
   - role: "IT Technician"
     company: "Resorts World Catskills"
     location: "Monticello, NY"
-    dates: "Dec 2020 – Aug 2022"
+    dates: "Dec 2020 – Sep 2022"
     bullets:
-      - "Front-line hardware, software and network support for a large casino resort."
+      - "Front-line hardware, software and application support across 1,000+ user endpoints, tracked in Zendesk, KACE and ServiceDesk Plus."
+      - "Fixed connectivity problems with static IP assignments and DNS troubleshooting in a Microsoft server environment."
+      - "Wrote operational guides that cut training time for tier-1 support staff."
       - "Set up POS systems for banquet events and supported table games installs, including terminating and labeling CAT6."
-      - "Supported the network team with DNS fixes and static IP configuration in a Microsoft server environment."
+  - role: "IT Consultant (freelance)"
+    company: "Wurtsboro Diner & Cafe"
+    location: "Wurtsboro, NY"
+    dates: "Jul 2025"
+    bullets:
+      - "Replaced outdated Arris hardware with a modern Ubiquiti mesh network and upgraded PCs and cabling."
+      - "Kept on as the main consultant for future upgrades."
 
 education:
   - school: "SUNY Brockport"
-    detail: "Computer Science coursework, 2016 – 2020"
+    detail: "Four years of Computer Science coursework, 2016 – 2020"
     note: "Left in senior year to accept an IT role, which led to systems administration."
 
 homelab:
