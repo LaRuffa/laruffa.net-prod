@@ -29,7 +29,6 @@ Opened a new casino destination as the **sole systems administrator and only sal
 - Built recurring SQL, Excel and Power Query reports for monthly promotional performance.
 - Validated multi-property promotional datasets against backend database logs for financial accuracy.
 - Rebuilt the manual prize redemption process to pull directly from the database, removing a fragile screen-scraping step.
-- Traced vendor file-delivery and latency problems (DataSpade, Everi) to oversized campaign files and coordinated the fix.
 
 **Stack:** SQL Server · T-SQL · Excel · Power Query
 

@@ -48,7 +48,6 @@ experience:
       - "Run recurring SQL, Excel and Power Query reporting that produces monthly promotional statistics and tracking summaries."
       - "Validate multi-property promotional datasets against backend database logs for financial accuracy."
       - "Rebuilt the manual prize redemption process to pull data directly from the database instead of scraping the application interface."
-      - "Primary technical contact for corporate vendors (DataSpade, Everi): traced network and latency problems to oversized campaign files and coordinated file delivery."
   - role: "Systems Administrator"
     company: "Resorts World Hudson Valley / Resorts World Catskills"
     location: "Newburgh / Monticello, NY"
