@@ -133,6 +133,10 @@ a[href^="mailto:"]::before {
 .terminal-body { margin: 0; padding: 20px 22px; font-size: .86rem; line-height: 1.75; white-space: pre-wrap; word-break: break-word; color: var(--text); max-height: 440px; overflow-y: auto; }
 /* interactive easter-egg shell: the real input is invisible, the pre shows what's typed */
 .terminal[data-shell] { position: relative; cursor: text; }
+@media (hover: none) and (pointer: coarse) {
+  .terminal[data-shell] { cursor: default; }
+  .term-input { display: none; }
+}
 .terminal { transition: border-color .4s var(--ease), box-shadow .4s var(--ease); }
 .terminal.focused { border-color: rgba(56,189,248,.45); box-shadow: 0 30px 80px rgba(0,0,0,.55), 0 0 0 4px rgba(56,189,248,.08); }
 .terminal-body { transition: opacity .35s var(--ease); }

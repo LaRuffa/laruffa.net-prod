@@ -26,7 +26,15 @@
   });
 
   // Easter egg: the hero terminal accepts input. Only `ls` and running the file it lists work.
+  // Desktop only: on touch screens the pop-up keyboard makes it look like a bug.
   var shell = document.querySelector("[data-shell]");
+  var touch = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+  if (shell && touch) {
+    shell.removeAttribute("title");
+    shell.removeAttribute("data-shell");
+    shell.querySelector(".term-input").remove();
+    shell = null;
+  }
   if (shell) {
     var body = shell.querySelector(".terminal-body");
     var input = shell.querySelector(".term-input");
