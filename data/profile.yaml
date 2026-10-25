@@ -1,0 +1,86 @@
+# Everything recruiters see on the home page and /resume comes from this file.
+headline: "Systems Administrator → Cloud Engineer"
+location: "Hudson Valley, NY"
+availability: "Open to Cloud, Systems & Infrastructure roles"
+summary: >-
+  Systems administrator with 5+ years in enterprise IT. I was the sole sysadmin
+  who stood up the full IT stack for a brand-new casino resort: 60+ VMs,
+  networking, security and access for ~200 users. Now taking that on-prem
+  experience to Azure.
+
+stats:
+  - value: "5+"
+    label: "years in enterprise IT"
+  - value: "60+"
+    label: "VMs deployed at a greenfield property"
+  - value: "~200"
+    label: "users supported end to end"
+  - value: "1"
+    label: "sysadmin at opening day: me"
+
+skills:
+  - group: "Infrastructure & Virtualization"
+    items: ["VMware vSphere / vCenter", "Proxmox", "Windows Server", "Veeam Backup", "SQL backup & restore", "RHEL / Ubuntu"]
+  - group: "Networking"
+    items: ["Cisco switching & routing (CLI)", "Meraki", "pfSense", "WireGuard", "DNS / DHCP", "ISP failover testing", "Ubiquiti"]
+  - group: "Security & Identity"
+    items: ["Active Directory", "MFA: Okta, Duo, MS Authenticator", "CrowdStrike", "Cisco AMP", "Incident response", "SecureLink vendor access"]
+  - group: "Cloud & Automation"
+    items: ["Microsoft Azure", "Microsoft 365", "PowerShell", "Robocopy", "CrushFTP", "CodeTwo"]
+
+certifications:
+  - name: "Microsoft Certified: Azure Fundamentals (AZ-900)"
+    status: "earned"
+  - name: "Azure Administrator Associate (AZ-104)"
+    status: "in progress"
+  - name: "Azure Security Engineer Associate (AZ-500)"
+    status: "in progress"
+
+experience:
+  - role: "IT Consultant"
+    company: "Independent / Wurtsboro Diner & Cafe"
+    location: "Wurtsboro, NY"
+    dates: "Jul 2025"
+    bullets:
+      - "Replaced outdated Arris hardware with a modern Ubiquiti mesh network."
+      - "Upgraded client PCs and cabling for faster, more consistent performance."
+      - "Kept on as the main consultant for future upgrades."
+  - role: "Systems Administrator"
+    company: "Resorts World Hudson Valley"
+    location: "Newburgh, NY"
+    dates: "Sep 2022 – Feb 2025"
+    bullets:
+      - "Sole systems administrator and only salaried IT staff at the property's opening. Built the entire IT infrastructure: 60+ VMs, server configuration, software and user access."
+      - "Led critical upgrades to the gaming system, firewall and switch firmware, and took part in ISP failover testing."
+      - "Rolled out MFA (Okta, Duo) and coordinated fast response to security incidents, including isolating a ransomware attack."
+      - "Restored servers and front-line PCs within hours of the global CrowdStrike blue-screen outage, avoiding business downtime."
+      - "Built a SQL data warehouse for backup and restore testing, with daily restores of system and user databases."
+      - "Ran the department and sat in weekly operations meetings on profit, budget and expansion planning."
+      - "Managed vendor and MSP relationships, including remote vendor access through SecureLink."
+  - role: "IT Technician"
+    company: "Resorts World Catskills"
+    location: "Monticello, NY"
+    dates: "Dec 2020 – Aug 2022"
+    bullets:
+      - "Front-line hardware, software and network support for a large casino resort."
+      - "Set up POS systems for banquet events and supported table games installs, including terminating and labeling CAT6."
+      - "Supported the network team with DNS fixes and static IP configuration in a Microsoft server environment."
+
+education:
+  - school: "SUNY Brockport"
+    detail: "Computer Science coursework, 2016 – 2020"
+    note: "Left in senior year to accept an IT role, which led to systems administration."
+
+homelab:
+  - name: "pfSense"
+    desc: "Firewall, router and VPN for the whole lab."
+  - name: "VMware vCenter 7"
+    desc: "Persistent virtualization cluster."
+  - name: "WireGuard + RackNerd VPS"
+    desc: "Reverse proxy that publishes lab services through a cloud VPS."
+  - name: "CubeCoders AMP"
+    desc: "Docker-based deployments for game servers."
+  - name: "Ubiquiti Flex switch"
+    desc: "16-port switching for the lab network."
+  - name: "Raspberry Pi"
+    desc: "Small always-on services and experiments."

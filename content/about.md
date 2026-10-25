@@ -1,34 +1,51 @@
 ---
 title: "About"
+description: "Sysadmin by trade, homelabber by habit, cloud engineer in progress."
 date: 2025-07-09
 menu:
   header:
     name: "about"
-    weight: 1
+    weight: 3
 ---
 
-<h2>A little about me</h2>
-Hi! I'm Mike. Welcome to my site.
+## Hi, I'm Mike
 
-I'm a tech-geek that loves to learn and evolve. Currently I am employed as an on-prem systems administrator with the goal of transitioning into cloud engineering. I am currently enrolled in AZ-104 and AZ-500 courses on Udemy, and have obtained my AZ-900 this way. In my free time I love to play video games and work on personal projects to further my knowledge. Here are a few of the technologies I've worked with in my homelab.
-<ul>
-<li>Pfsense - firewall/router, VPN. Love this software. Easy to use, and secure</li>
-<li>VMWare Vcenter 7 - for persistent virtualization</li>
-<li>Cube Coders AMP (Application Management Panel) not to be confused with Cisco's AMP (Endpoint security) - for easy docker based deployments for game servers</li>
-<li>Wireguard - for reverse proxy via a VPS</li>
-<li>Racknerd VPS - for site/game hosting, reverse proxy, and miscellaneous projects</li>
-<li>Ubiquiti Flex 16 port - Got this before I was trained on Cisco products, but don't regret. Looks nice and easy to configure via GUI</li>
-<li>Raspberry Pi</li>
-</ul>
+I'm a systems administrator who loves to learn and keep growing. I started at a casino resort, resetting passwords and terminating CAT6. Within two years I was the only systems administrator at a brand-new property, standing up its whole IT environment from an empty server room.
 
-As many techies do, I have ventured down the Linux route before. I still use it from time to time, but moreso for curiousity than anything else. I can proudly say I prefer Windows as my daily driver, but have had intermediate experience in the following distributions:
-<ul>
-  <li>Arch - I love it with Hyperland, but not my favorite distribution. You need a lot of time to get things working the way you want, which I simply do not have.</li>
-  <li><ul>Debian Based Distros</li>
-  <li>Ubuntu - My favorite. Stable, and works out of the box for what I use it for.</li>
-  <li>Kali - We've all had that "hacker phase" before. I like the OS, but at this point I'd rather just use Arch or Ubuntu and install the tools I need. Too much bloat in my opinion.</li>
-  <li>Mint - Sweet mint.</li>
-    <li>Pi OS - probably my least favorite distrobution of all time to be honest.</li>
-  </ul>
-  <li>RHEL - Have used both professionally and personally, no major complaints.</li>
-</ul>
+Now I'm taking that on-prem experience to the cloud. I've earned my **AZ-900** and I'm working through **AZ-104** (Azure Administrator) and **AZ-500** (Azure Security Engineer). The goal is a cloud or infrastructure engineering role where I can build and secure systems at scale.
+
+## What I bring
+
+- **Ownership.** I've been the only person on call, so I document, automate and fix root causes instead of symptoms.
+- **Calm under pressure.** During the global CrowdStrike outage, I had servers and front-line PCs back up within hours.
+- **Security mindset.** I've rolled out MFA, isolated a ransomware attack, and managed vendor access through least-privilege tools.
+- **Business awareness.** I sat in weekly operations meetings on budgets and expansion, so I know IT exists to keep the business running.
+
+## The homelab
+
+Most of what I learn starts at home. My current lab:
+
+- **pfSense**: firewall, router and VPN. Easy to use and secure. I love this software.
+- **VMware vCenter 7**: persistent virtualization.
+- **CubeCoders AMP** (the Application Management Panel, not Cisco's endpoint product): Docker-based game server deployments.
+- **WireGuard**: a reverse proxy back to a VPS.
+- **RackNerd VPS**: site and game hosting, reverse proxy and other projects.
+- **Ubiquiti Flex 16-port switch**: I bought it before I trained on Cisco and don't regret it. It looks nice and the GUI is easy to configure.
+- **Raspberry Pi**: small always-on services.
+
+## Linux
+
+Like most techies, I've gone down the Linux route. Windows is my daily driver, but I have intermediate experience with:
+
+- **Ubuntu**: my favorite. Stable, and it works out of the box for what I need.
+- **RHEL**: used both professionally and personally, with no major complaints.
+- **Arch**: great with Hyprland, but getting it the way I want takes more time than I have.
+- **Kali**: we've all had the "hacker phase." These days I'd rather install the tools I need on Ubuntu or Arch.
+- **Mint**: sweet mint.
+- **Pi OS**: honestly, my least favorite.
+
+## Off the clock
+
+Video games, personal projects, and whatever new piece of tech I'm figuring out that week.
+
+[Email me](mailto:mike@laruffa.net) · [LinkedIn](https://www.linkedin.com/in/laruffa/) · [Microsoft Learn](https://learn.microsoft.com/en-us/users/laruffa/)

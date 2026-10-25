@@ -1,0 +1,8 @@
+<ul class="certs">
+    {{ range site.Data.profile.certifications }}
+    <li class="cert {{ if eq .status "earned" }}earned{{ else }}pending{{ end }}">
+        <span class="cert-status mono">{{ if eq .status "earned" }}[✓] earned{{ else }}[…] {{ .status }}{{ end }}</span>
+        <span class="cert-name">{{ .name }}</span>
+    </li>
+    {{ end }}
+</ul>

@@ -1,8 +1,9 @@
-{{ define "title"}}
-404 | {{ .Site.Params.author.name }}
-{{ end }}
-
-{{ define "main"}}
-<h1>{{ i18n "not_found" }}</h1>
-<p>{{ i18n "not_found_desc" }}</p>
+{{ define "title" }}404 | {{ .Site.Params.author.name }}{{ end }}
+{{ define "main" }}
+<section class="container page">
+    <pre class="mono"><span class="accent">$</span> cd /this-page
+bash: cd: No such file or directory</pre>
+    <h1>404: page not found</h1>
+    <p><a class="btn" href="{{ "/" | relURL }}">cd ~</a></p>
+</section>
 {{ end }}
