@@ -43,7 +43,7 @@
       body.scrollTop = body.scrollHeight;
     };
     var isEgg = function (cmd) {
-      var c = cmd.replace(/\\ /g, " ").replace(/["']/g, "").replace(/\s+/g, " ");
+      var c = cmd.replace(/^\.\\/, "./").replace(/\\ /g, " ").replace(/["']/g, "").replace(/\s+/g, " ");
       return /^((ba)?sh )?(\.\/)?easter egg$/.test(c) && (c.indexOf("./") === 0 || /^(ba)?sh /.test(c));
     };
     var run = function (cmd) {
@@ -74,27 +74,38 @@
         var cmd = input.value;
         input.value = "";
         run(cmd);
-      } else if (e.key === "Tab" && input.value.length >= 2 && "./easter egg".indexOf(input.value.replace(/\\ /g, " ")) === 0) {
+      } else if (e.key === "Tab") {
+        // Keep Tab in the terminal like a real shell (Esc leaves). Complete the file name.
         e.preventDefault();
-        input.value = "./easter\\ egg";
-        render();
+        var v = input.value.replace(/^\.\\/, "./").replace(/\\ /g, " ").replace(/["']/g, "");
+        if (v.length >= 2 && "./easter egg".indexOf(v) === 0) {
+          input.value = "./easter\\ egg";
+          render();
+        }
+      } else if (e.key === "Escape") {
+        input.blur();
       }
     });
   }
+
+  window.addEventListener("beforeprint", function () {
+    document.querySelectorAll(".reveal").forEach(function (n) { n.classList.add("in"); });
+  });
 
   // Let visitors know a mailto link hands off to their email app.
   document.querySelectorAll('a[href^="mailto:"]').forEach(function (a) {
     if (!a.title) a.title = "Opens your email app";
   });
 
-  // Fade sections in as they scroll into view.
+  // Fade home-page sections in as they scroll into view. Only top-level sections, never the
+  // résumé, so content can't get stuck hidden (or print blank).
   if ("IntersectionObserver" in window && !reduce) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
       });
-    }, { threshold: 0.12 });
-    document.querySelectorAll(".section, .stats, .card, .timeline-item").forEach(function (n) {
+    }, { threshold: 0, rootMargin: "0px 0px -8% 0px" });
+    document.querySelectorAll(".main > section.section, .main > .stats").forEach(function (n) {
       n.classList.add("reveal");
       io.observe(n);
     });
