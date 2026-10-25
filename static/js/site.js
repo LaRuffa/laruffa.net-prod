@@ -18,6 +18,11 @@
     }, 2200);
   }
 
+  // Let visitors know a mailto link hands off to their email app.
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function (a) {
+    if (!a.title) a.title = "Opens your email app";
+  });
+
   // Fade sections in as they scroll into view.
   if ("IntersectionObserver" in window && !reduce) {
     var io = new IntersectionObserver(function (entries) {

@@ -11,7 +11,7 @@
                 {{ range .Site.Menus.header }}
                 <li><a href="{{ .URL | relURL }}"{{ if $current.IsMenuCurrent "header" . }} class="active" aria-current="page"{{ end }}><span class="dim">./</span>{{ .Name }}</a></li>
                 {{ end }}
-                <li><a class="btn btn-sm" href="mailto:{{ .Site.Params.author.email }}">hire_me</a></li>
+                <li><a href="mailto:{{ .Site.Params.author.email }}"><span class="dim">./</span>contact</a></li>
             </ul>
         </nav>
     </div>

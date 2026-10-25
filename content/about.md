@@ -14,7 +14,7 @@ I'm an IT and data professional who loves to learn and keep growing. I started a
 
 In 2026 I moved into a **Marketing Analyst** role at Resorts World Catskills. There I use SQL, Excel and Power Query to report on promotions and check the numbers against the database. Running the systems taught me how the data is produced; analyzing it teaches me what the business needs from it.
 
-I've earned my **AZ-900** and I'm working toward **AZ-104** (Azure Administrator). I'm looking for a role that uses both sides: infrastructure, identity and automation, plus the data that runs through them.
+I've earned my **AZ-900** and I'm working toward **AZ-104** (Azure Administrator). I enjoy work that uses both sides: infrastructure, identity and automation, plus the data that runs through them.
 
 ## What I bring
 
