@@ -1,0 +1,38 @@
+{{ define "main" }}
+{{ $p := site.Data.profile }}
+<article class="container page resume">
+    <header class="page-header resume-header">
+        <div>
+            <p class="mono dim">~/resume</p>
+            <h1>{{ .Site.Params.author.name }}</h1>
+            <p class="lead">{{ $p.headline }} · {{ $p.location }}</p>
+            <p class="mono"><a class="link" href="mailto:{{ .Site.Params.author.email }}">{{ .Site.Params.author.email }}</a> · <a class="link" href="https://www.linkedin.com/in/laruffa/">linkedin.com/in/laruffa</a> · <a class="link" href="https://github.com/laruffa">github.com/laruffa</a></p>
+        </div>
+        <button class="btn btn-ghost no-print" onclick="window.print()">Print / save PDF</button>
+    </header>
+    <section class="section">
+        <h2 class="section-title">summary</h2>
+        <p>{{ $p.summary }}</p>
+    </section>
+    <section class="section">
+        <h2 class="section-title">experience</h2>
+        {{ partial "experience.html" . }}
+    </section>
+    <section class="section">
+        <h2 class="section-title">skills</h2>
+        {{ partial "skills.html" . }}
+    </section>
+    <section class="section split">
+        <div>
+            <h2 class="section-title">certifications</h2>
+            {{ partial "certs.html" . }}
+        </div>
+        <div>
+            <h2 class="section-title">education</h2>
+            {{ range $p.education }}
+            <p><strong>{{ .school }}</strong><br><span class="dim">{{ .detail }}</span><br>{{ .note }}</p>
+            {{ end }}
+        </div>
+    </section>
+</article>
+{{ end }}

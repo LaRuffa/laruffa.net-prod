@@ -1,27 +1,19 @@
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="{{.Description | default .Site.Params.SiteDescription}}">
-
+<meta name="description" content="{{ .Description | default .Site.Params.sitedescription }}">
+<meta name="theme-color" content="#07090f">
 {{ hugo.Generator }}
-
-<!-- Permalink & RSSlink -->
-<link rel="canonical" href="{{ .Permalink }}" >
+<link rel="canonical" href="{{ .Permalink }}">
 {{- with .OutputFormats.Get "RSS" }}
-  <link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" >
-  <link href="{{ .Permalink }}" rel="feed" type="application/rss+xml" title="{{ $.Site.Title }}" >
-{{- end -}}
-
-{{ $vars := dict
-  "color" (or site.Params.styles.color "blue")
-}}
-
-{{ $options := dict
-  "targetPath" "css/style.css"
-  "transpiler" "dartsass"
-  "vars" $vars
-}}
-
-{{ $style := resources.Get "sass/main.scss" | toCSS $options | minify | fingerprint }}
-<link href="{{ $style.RelPermalink }}" rel="stylesheet">
-
+<link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}">
+{{- end }}
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Params.author.name }}{{ else }}{{ .Title }} | {{ .Site.Params.author.name }}{{ end }}">
+<meta property="og:description" content="{{ .Description | default .Site.Params.sitedescription }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
+<script defer src="{{ "js/site.js" | relURL }}"></script>
 {{ partial "custom-head.html" . }}

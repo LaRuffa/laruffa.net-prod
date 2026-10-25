@@ -1,0 +1,10 @@
+<div class="skill-grid">
+    {{ range site.Data.profile.skills }}
+    <div class="card">
+        <h3 class="card-title">{{ .group }}</h3>
+        <ul class="tags">
+            {{ range .items }}<li>{{ . }}</li>{{ end }}
+        </ul>
+    </div>
+    {{ end }}
+</div>

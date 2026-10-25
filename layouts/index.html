@@ -1,43 +1,75 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
-
-<head>
-    <title>
-        {{ i18n "home" }} | {{ .Site.Params.author.name }}
-    </title>
-
-    {{ partial "head.html" . }}
-
-</head>
-
-<body>
-
-    <div class="flexWrapper">
-        {{ partial "header.html" . }}
-
-        <div class="content vertical">
-            <main class="main">
-                <div class="indexWrapper">
-                    {{ if .Site.Params.author.avatarFirst }}
-                        {{ partial "avatar.html" . }}
-                    {{ end }}
-                    <div>
-                        <h1 class="indexHeader">{{ .Site.Params.author.name }}</h1>
-                    </div>
-                    {{ if not .Site.Params.author.avatarFirst }}
-                        {{ partial "avatar.html" . }}
-                    {{ end }}
-                    {{ if isset .Site.Params "social" }}
-                        {{ partial "social.html" . }}
-                    {{ end }}
-                </div>
-            </main>
+{{ define "title" }}{{ .Site.Params.author.name }} | {{ site.Data.profile.headline }}{{ end }}
+{{ define "main" }}
+{{ $p := site.Data.profile }}
+<section class="hero container">
+    <div class="hero-copy">
+        <p class="status-pill mono"><span class="dot"></span>{{ $p.availability }}</p>
+        <h1 class="hero-title">{{ .Site.Params.author.name }}</h1>
+        <p class="hero-sub mono"><span class="accent">&gt;</span> <span class="typed" data-words="Systems Administrator|Aspiring Cloud Engineer|Azure · VMware · Cisco|Homelab Builder">{{ $p.headline }}</span></p>
+        <p class="hero-summary">{{ $p.summary }}</p>
+        <div class="hero-cta">
+            <a class="btn" href="{{ "resume/" | relURL }}">View résumé</a>
+            <a class="btn btn-ghost" href="mailto:{{ .Site.Params.author.email }}">Get in touch</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/laruffa/" target="_blank" rel="noopener">LinkedIn ↗</a>
         </div>
-
-
-        {{ partial "footer.html" . }}
     </div>
+    <div class="terminal" aria-label="Terminal summary">
+        <div class="terminal-bar"><span></span><span></span><span></span><em class="mono">~/whoami.sh</em></div>
+        <pre class="terminal-body mono"><span class="accent">$</span> whoami
+{{ .Site.Params.author.name }}
+<span class="accent">$</span> cat role.txt
+{{ $p.headline }}
+<span class="accent">$</span> ls ~/certs
+<span class="ok">AZ-900 ✓</span>  <span class="warn">AZ-104 …</span>  <span class="warn">AZ-500 …</span>
+<span class="accent">$</span> uptime --in-it
+{{ (index $p.stats 0).value }} years in enterprise IT
+<span class="accent">$</span> echo $LOCATION
+{{ $p.location }}
+<span class="accent">$</span> <span class="cursor"></span></pre>
+    </div>
+</section>
 
-</body>
+<section class="container stats">
+    {{ range $p.stats }}
+    <div class="stat">
+        <span class="stat-value">{{ .value }}</span>
+        <span class="stat-label">{{ .label }}</span>
+    </div>
+    {{ end }}
+</section>
 
-</html>
+<section class="container section" id="experience">
+    <h2 class="section-title"><span class="accent">01.</span> experience</h2>
+    {{ partial "experience.html" . }}
+</section>
+
+<section class="container section" id="skills">
+    <h2 class="section-title"><span class="accent">02.</span> stack</h2>
+    {{ partial "skills.html" . }}
+</section>
+
+<section class="container section split" id="certs">
+    <div>
+        <h2 class="section-title"><span class="accent">03.</span> certifications</h2>
+        {{ partial "certs.html" . }}
+    </div>
+    <div>
+        <h2 class="section-title"><span class="accent">04.</span> homelab</h2>
+        <ul class="lab">
+            {{ range $p.homelab }}<li><span class="mono accent">{{ .name }}</span> <span class="dim">· {{ .desc }}</span></li>{{ end }}
+        </ul>
+        <p><a class="link" href="{{ "about/" | relURL }}">More about me →</a></p>
+    </div>
+</section>
+
+<section class="container section">
+    <div class="cta-band">
+    <h2>Hiring for cloud, infrastructure or sysadmin?</h2>
+    <p>I'm looking for my next role and would love to talk.</p>
+    <div class="hero-cta">
+        <a class="btn" href="mailto:{{ .Site.Params.author.email }}">{{ .Site.Params.author.email }}</a>
+        <a class="btn btn-ghost" href="{{ "projects/" | relURL }}">See projects</a>
+    </div>
+    </div>
+</section>
+{{ end }}

@@ -1,40 +1,20 @@
-{{ define "title"}}
-{{ .Title }} | {{ .Site.Params.author.name }}
-{{ end }}
-
 {{ define "main" }}
-
-<div>
-    <div class="listHeader">
+<section class="container page">
+    <header class="page-header">
+        <p class="mono dim">~/{{ .Section }}</p>
         <h1>{{ .Title }}</h1>
-    </div>
-
-    {{ with .Content }}
-    <div class="listContent">
-        {{- . -}}
-    </div>
-    {{ end }}
-
-    <div>
+        {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+    </header>
+    <div class="post-list">
         {{ range .Pages }}
-
-        <a class="postListLink" href="{{ .Permalink }}">
-            <!-- [html-validate-disable-next prefer-native-element] -->
-            <div class="postListItem" role="listitem">
-                <div class="postHeader">
-                    <span class="postTitle">{{ .Title }}</span>
-                    {{ $formattedDate := .Date.Format "2006-01-02" }}
-                    <time class="postDate" datetime="{{ $formattedDate }}">{{ .Date | time.Format ":date_long" }}</time>
-                </div>
-                <div class="postExcerpt">
-                    <p>{{ .Summary }}</p>
-                </div>
-            </div>
+        <a class="card post-card" href="{{ .RelPermalink }}">
+            <span class="mono dim">{{ .Date.Format "2006-01-02" }}</span>
+            <h3>{{ .Title }}</h3>
+            <p>{{ .Summary | plainify | truncate 180 }}</p>
         </a>
-
-
-        {{end}}
+        {{ else }}
+        <p class="mono dim">$ ls ./posts<br>no posts yet. Write-ups are coming.</p>
+        {{ end }}
     </div>
-</div>
-
+</section>
 {{ end }}

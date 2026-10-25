@@ -1,21 +1,17 @@
-<header class="headerWrapper">
-    <div class="header">
-        <div>
-            <a class="terminal" href="{{ .Site.BaseURL | relLangURL }}">
-                <span>{{ .Site.Params.user }}@{{ .Site.Params.hostname }} ~ $</span>
-            </a>
-        </div>
-        <input class="side-menu" type="checkbox" id="side-menu">
-        <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
-        <nav class="headerLinks">
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="brand" href="{{ "/" | relURL }}">
+            <span class="prompt-user">{{ .Site.Params.user }}</span><span class="dim">@</span><span class="prompt-host">{{ .Site.Params.hostname }}</span><span class="dim">:~$</span><span class="cursor" aria-hidden="true"></span>
+        </a>
+        <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Toggle navigation">
+        <label class="nav-burger" for="nav-toggle"><span></span></label>
+        <nav class="nav">
             <ul>
+                {{ $current := . }}
                 {{ range .Site.Menus.header }}
-                <li>
-                    <a href="{{ .URL | absLangURL }}" title="{{ .Title }}" >
-                        ~/{{- .Name -}}
-                    </a>
-                </li>
+                <li><a href="{{ .URL | relURL }}"{{ if $current.IsMenuCurrent "header" . }} class="active" aria-current="page"{{ end }}><span class="dim">./</span>{{ .Name }}</a></li>
                 {{ end }}
+                <li><a class="btn btn-sm" href="mailto:{{ .Site.Params.author.email }}">hire_me</a></li>
             </ul>
         </nav>
     </div>
