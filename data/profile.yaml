@@ -1,16 +1,19 @@
 # Everything recruiters see on the home page and /resume comes from this file.
 headline: "Systems Administrator · Data & Reporting"
 location: "Hudson Valley, NY"
+# First day in IT (Resorts World Catskills). "{years}" anywhere below becomes
+# whole years since this date, e.g. "5+", recalculated on every build and page load.
+career_start: "2020-12-20"
 availability: "Freelance IT projects welcome"
 summary: >-
-  5+ years keeping business-critical systems running in a highly regulated
+  {years} years keeping business-critical systems running in a highly regulated
   casino environment. I stood up the full IT stack for a brand-new resort
   (60+ VMs, networking, hybrid identity, backups), and now I turn data into
   answers with SQL, Excel and Power Query as a marketing analyst. I bring
   infrastructure and data work together, with Azure next.
 
 stats:
-  - value: "5+"
+  - value: "{years}"
     label: "years in enterprise IT & data"
   - value: "60+"
     label: "VMs deployed at a greenfield resort"
@@ -83,15 +86,44 @@ education:
     note: "Left in senior year to accept an IT role, which led to systems administration."
 
 homelab:
-  - name: "pfSense"
-    desc: "Firewall, router and VPN for the whole lab."
-  - name: "VMware vCenter 7"
-    desc: "Persistent virtualization cluster."
-  - name: "WireGuard + RackNerd VPS"
-    desc: "Reverse proxy that publishes lab services through a cloud VPS."
-  - name: "CubeCoders AMP"
-    desc: "Docker-based deployments for game servers."
-  - name: "Ubiquiti Flex switch"
-    desc: "16-port switching for the lab network."
-  - name: "Raspberry Pi"
-    desc: "Small always-on services and experiments."
+  - kind: "hypervisor"
+    name: "Intel NUC 9 Extreme"
+    specs:
+      - ["CPU", "Intel i9-9980HK"]
+      - ["GPU", "Nvidia GTX 1660 Ti"]
+      - ["RAM", "64 GB DDR4"]
+      - ["NVMe", "Samsung 980 Pro (1 TB)"]
+      - ["OS", "VMware vCenter 7"]
+  - kind: "ai server"
+    name: "Venus"
+    featured: true
+    specs:
+      - ["CPU", "AMD Ryzen 9 5900X"]
+      - ["GPU", "Nvidia RTX 3090 (24 GB)"]
+      - ["RAM", "64 GB"]
+      - ["SSD", "1 TB"]
+  - kind: "storage"
+    name: "Synology NAS"
+    specs:
+      - ["HDD", "2× IronWolf Pro (4 TB)"]
+      - ["HDD", "2× WD Red (2 TB)"]
+  - kind: "network"
+    name: "Protectli Vault FW4B"
+    specs:
+      - ["OS", "pfSense (firewall, VPN)"]
+      - ["Switch", "Ubiquiti Flex (16-port)"]
+      - ["Extra", "Raspberry Pi"]
+  - kind: "vm"
+    name: "Game server VM"
+    specs:
+      - ["Host", "NUC 9 Extreme"]
+      - ["vCPU", "4 threads"]
+      - ["RAM", "16 GB"]
+      - ["Disk", "200 GB + 100 GB backups"]
+      - ["OS", "Ubuntu · CubeCoders AMP"]
+  - kind: "edge"
+    name: "RackNerd VPS"
+    specs:
+      - ["Role", "Public front door"]
+      - ["Link", "WireGuard tunnel home"]
+      - ["Serves", "memzi.net (Caddy + WordPress)"]

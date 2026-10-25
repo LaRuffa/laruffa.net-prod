@@ -18,6 +18,70 @@
     }, 2200);
   }
 
+  // Keep "N+ years" current between site rebuilds.
+  document.querySelectorAll("[data-years-since]").forEach(function (n) {
+    var start = new Date(n.dataset.yearsSince + "T00:00:00");
+    var years = Math.floor((Date.now() - start) / (365.25 * 864e5));
+    if (years > 0) n.textContent = years + "+";
+  });
+
+  // Easter egg: the hero terminal accepts input. Only `ls` and running the file it lists work.
+  var shell = document.querySelector("[data-shell]");
+  if (shell) {
+    var body = shell.querySelector(".terminal-body");
+    var input = shell.querySelector(".term-input");
+    var PROMPT = '<span class="accent">$</span> ';
+    var CURSOR = '<span class="cursor"></span>';
+    var original = body.innerHTML;
+    var base = original.slice(0, original.lastIndexOf(PROMPT));
+    var hist = base, locked = false;
+    var esc = function (t) {
+      return t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    };
+    var render = function () {
+      body.innerHTML = hist + (locked ? "" : PROMPT + esc(input.value) + CURSOR);
+      body.scrollTop = body.scrollHeight;
+    };
+    var isEgg = function (cmd) {
+      var c = cmd.replace(/\\ /g, " ").replace(/["']/g, "").replace(/\s+/g, " ");
+      return /^((ba)?sh )?(\.\/)?easter egg$/.test(c) && (c.indexOf("./") === 0 || /^(ba)?sh /.test(c));
+    };
+    var run = function (cmd) {
+      var t = cmd.trim();
+      hist += PROMPT + esc(cmd) + "\n";
+      if (!t) return render();
+      if (t === "ls") {
+        hist += "<span class=\"egg-file\">'easter egg'</span>\n";
+      } else if (isEgg(t)) {
+        hist += "<span class=\"ok\">You found me! Did I do this right?</span>\n";
+        locked = true;
+        setTimeout(function () { hist = base; locked = false; render(); }, 4000);
+      } else {
+        hist += "bash: " + esc(t.split(/\s+/)[0]) + ": command not found\n";
+      }
+      render();
+    };
+    shell.addEventListener("click", function () {
+      if (!window.getSelection().toString()) input.focus({ preventScroll: true });
+    });
+    input.addEventListener("focus", function () { shell.classList.add("focused"); });
+    input.addEventListener("blur", function () { shell.classList.remove("focused"); });
+    input.addEventListener("input", function () { if (!locked) render(); });
+    input.addEventListener("keydown", function (e) {
+      if (locked) { e.preventDefault(); return; }
+      if (e.key === "Enter") {
+        e.preventDefault();
+        var cmd = input.value;
+        input.value = "";
+        run(cmd);
+      } else if (e.key === "Tab" && input.value.length >= 2 && "./easter egg".indexOf(input.value.replace(/\\ /g, " ")) === 0) {
+        e.preventDefault();
+        input.value = "./easter\\ egg";
+        render();
+      }
+    });
+  }
+
   // Let visitors know a mailto link hands off to their email app.
   document.querySelectorAll('a[href^="mailto:"]').forEach(function (a) {
     if (!a.title) a.title = "Opens your email app";

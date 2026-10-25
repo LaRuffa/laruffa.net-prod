@@ -52,9 +52,11 @@ Opened a new casino destination as the **sole systems administrator and only sal
 ## Homelab: hybrid self-hosting
 <p class="meta-line">Ongoing · Personal</p>
 
-- A **pfSense** edge with VPN, and **VMware vCenter** for virtualization.
-- A **WireGuard** tunnel to a **RackNerd VPS**, which reverse-proxies lab services out to the internet.
-- Docker-based game servers managed with **CubeCoders AMP**.
+- **Protectli Vault FW4B** running pfSense at the edge, with an **Intel NUC 9 Extreme** (i9, 64 GB) running VMware vCenter 7.
+- **Venus**, a Ryzen 9 5900X and RTX 3090 (24 GB) box for running AI models locally.
+- **Synology NAS** with about 12 TB of raw storage for backups and files.
+- A **WireGuard** tunnel to a **RackNerd VPS**, where Caddy reverse-proxies public sites such as memzi.net.
+- Game servers on an Ubuntu VM, managed with **CubeCoders AMP**, with dedicated backup storage.
 - This website: Hugo, version-controlled on GitHub, with separate dev and prod repos.
 
-**Stack:** pfSense · vCenter 7 · WireGuard · Linux · Docker · Hugo · Git
+**Stack:** pfSense · vCenter 7 · Synology · WireGuard · Caddy · Ubuntu · Docker · Hugo · Git

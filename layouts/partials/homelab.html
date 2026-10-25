@@ -1,0 +1,11 @@
+<div class="lab-grid">
+    {{ range site.Data.profile.homelab }}
+    <div class="card lab-card{{ if .featured }} featured{{ end }}">
+        <p class="lab-kind mono">{{ .kind }}</p>
+        <h3 class="card-title">{{ .name }}</h3>
+        <dl class="specs mono">
+            {{ range .specs }}<dt>{{ index . 0 }}</dt><dd>{{ index . 1 }}</dd>{{ end }}
+        </dl>
+    </div>
+    {{ end }}
+</div>
