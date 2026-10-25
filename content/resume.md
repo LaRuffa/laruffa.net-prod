@@ -1,7 +1,7 @@
 ---
 title: "Résumé"
 type: "resume"
-description: "Experience, skills and certifications. Systems Administrator moving into cloud engineering."
+description: "Experience, skills and certifications. Systems administration, data and reporting."
 menu:
   header:
     name: "resume"

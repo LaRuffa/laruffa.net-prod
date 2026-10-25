@@ -9,17 +9,37 @@ menu:
 ---
 
 ## Resorts World Hudson Valley: greenfield IT build-out
-<p class="meta-line">2022 – 2025 · Sole Systems Administrator · Newburgh, NY</p>
+<p class="meta-line">2022 – 2026 · Sole Systems Administrator at launch · Newburgh, NY</p>
 
 Opened a new casino destination as the **sole systems administrator and only salaried IT staff member**.
 
 - Planned, installed and configured the **entire IT infrastructure**: 60+ virtual machines, networking and core utilities.
 - Ran the IT department and handled technology requests from every other department.
-- Rolled out MFA (Okta, Duo) and responded to security incidents, including containing a ransomware attack.
+- Deployed hybrid identity from scratch: on-prem Active Directory into Entra ID, with Okta and Duo MFA.
+- Directed two IT technicians through hardware staging and network rollout for the launch.
+- Responded to security incidents, including containing a ransomware attack.
 - Recovered servers and front-line PCs within hours of the CrowdStrike blue-screen outage.
 - Joined weekly operations meetings on profit, budget and future expansion.
 
-**Stack:** VMware vSphere · Windows Server · Active Directory · Cisco · Meraki · Veeam · CrowdStrike · Okta · Duo · SQL
+**Stack:** VMware vSphere · Windows Server · Active Directory · Entra ID · Cisco · Meraki · Veeam · CrowdStrike · Okta · Duo · SQL
+
+## Promotional data reporting & redemption rebuild
+<p class="meta-line">2026 – present · Marketing Analyst I · Resorts World Catskills</p>
+
+- Built recurring SQL, Excel and Power Query reports for monthly promotional performance.
+- Validated multi-property promotional datasets against backend database logs for financial accuracy.
+- Rebuilt the manual prize redemption process to pull directly from the database, removing a fragile screen-scraping step.
+- Traced vendor file-delivery and latency problems (DataSpade, Everi) to oversized campaign files and coordinated the fix.
+
+**Stack:** SQL Server · T-SQL · Excel · Power Query
+
+## Automated data validation
+<p class="meta-line">2022 – 2026 · Systems Administrator · Resorts World</p>
+
+- Ran PowerShell checks on Task Scheduler that track file transfers, row counts and data freshness.
+- Used local AI tooling to write and maintain the scripts, with strict safety limits on what they can change.
+
+**Stack:** PowerShell · Task Scheduler · SQL Server
 
 ## Wurtsboro Diner & Cafe: network modernization
 <p class="meta-line">Jul 2025 · IT Consultant · Wurtsboro, NY</p>

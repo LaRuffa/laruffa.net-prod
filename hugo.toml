@@ -16,7 +16,7 @@ title = 'Michael La Ruffa'
 [params]
 user = "mike"
 hostname = "laruffa.net"
-sitedescription = "Michael La Ruffa: Systems Administrator moving into cloud engineering. VMware, Cisco, Active Directory, security and Azure."
+sitedescription = "Michael La Ruffa: Systems administrator and data analyst: VMware, Active Directory, Entra ID, SQL, PowerShell and Azure."
   [params.author]
     name = "Michael La Ruffa"  # Website and RSS feed author
     email = "mike@laruffa.net"  # RSS feed email address
