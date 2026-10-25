@@ -14,6 +14,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
-<script defer src="{{ "js/site.js" | relURL }}"></script>
+{{- /* Fingerprinted so every deploy gets a new URL and browsers never mix stale CSS/JS with new HTML. */ -}}
+{{ $css := resources.Get "css/site.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+{{ $js := resources.Get "js/site.js" | minify | fingerprint }}
+<script defer src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
 {{ partial "custom-head.html" . }}
